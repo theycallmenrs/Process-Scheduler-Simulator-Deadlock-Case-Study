@@ -1,11 +1,14 @@
 # Process-Scheduler-Simulator-Deadlock-Case-Study
 
-## Team Members saved
+## Team Members 
 
 -Prince John Martine 
+
 -Neelam Rajesh
+
 -Ibrahim
--Andrew Themistoc
+
+-Andrew Themistocles 
 
 ## Project Overview
 
