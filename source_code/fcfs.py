@@ -61,10 +61,22 @@ for P in processes:
     P["WT"] = P["TAT"] - P["Burst_Time"]
 
 
-#printing the results
+ #STEP 4 CALCULATING AVERAGE TAT AND WT
+Total_TAT = 0
+Total_WT = 0
+n=len(processes) #total number of processes 
 
+for P in processes:
+    Total_TAT += P["TAT"]
+    Total_WT += P["WT"]
+
+Average_TAT = Total_TAT / n
+Average_WT = Total_WT / n     
+
+
+#printing the results
 print("--------------------------------------")
-print ("FCFS Scheduling Result")
+print ("FCFS Scheduling Results")
 print("--------------------------------------") 
 
 for P in processes:
@@ -77,6 +89,27 @@ for P in processes:
     print("Waiting Time(WT):", P["WT"])
     print("------------------------------------")
             
- 
+print("Average TAT and WT")
+print("------------------------------------------")
+print("Average Turnaround Time(TAT):",Average_TAT)
+print("Average Waiting Time(WT):", Average_WT)
+print("------------------------------------------")
 
+#STEP 5 GANTT CHART GENERATION
+print("\nGANTT CHART")
+print("=================")
 
+#printing processid in order 
+for P in processes:
+    print("|" , P["ProcessId"] , end = " ")
+print("|")
+
+#printing time markers below
+time_marker = 0
+print(time_marker , end = " ")
+for P in processes:
+    time_marker = P["completion"]
+
+    spaces = 3 
+    print(" " * spaces , time_marker, end="")
+print()    
