@@ -38,7 +38,7 @@ def sjf_scheduling(processes):
 
         if not available:
             time += 1
-   git         continue
+        continue
 
         # Select process with shortest burst time
         current = min(available, key=lambda x: x.burst_time)
