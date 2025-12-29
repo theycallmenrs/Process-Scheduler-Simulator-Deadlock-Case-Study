@@ -2,7 +2,7 @@
 
 #first stage is reading the csv files and storing the processes 
 
-#importing the csv module to read  the required  CSV files 
+#STEP 1 importing the csv module to read  the required  CSV files 
 import csv 
 
 processes = [] #a list to store all the processes 
@@ -12,12 +12,49 @@ with open("csv_test_files/FCFS_INPUTS/fcfs_input_1.csv", "r") as file:
 
     reader = csv.DictReader(file) #reading the csv as dictionary
     for row in reader:
+        ProcessId = row["ProcessId"]
+        Arrival_Time = int(row["Arrival_Time"])
+        Burst_Time = int(row["Burst_Time"])
+        
         #appending each process as a dictionary with prrocesid,arrival and burst
         processes.append({
-            "pid": row["ProcessId"],
-            "arrivalTime": int(row["Arrival_Time"]), #converting arrival time and burst time to interger
-            "burstTime": int(row["Burst_Time"])
+            "ProcessId": ProcessId,
+            "Arrival_Time": Arrival_Time, #converting arrival time and burst time to interger 
+            "Burst_Time": Burst_Time 
         })
         
 #printing the processes to check data is read correctly
 print(processes)       
+
+#STEP 2 CALCULATING THE STARTING TIME AND COMPLETION TIME 
+
+#sorting processes by arrival time
+processes.sort(key=lambda x: x["Arrival_Time"])
+
+#initialising the complition time 
+prev_compTime = 0
+
+#calculating starting time(ST) and complition time (CT) for each process
+for P in processes:
+    #starting time is the max time between the prev_compTime and arrival time 
+    P["start"]=max(prev_compTime,P["Arrival_Time"]) 
+
+    #calculating completion time  which is sum of start time and burst time
+    P["completion"] = P["start"] + P["Burst_Time"]
+
+    #updating the complition time after each process finish
+    prev_compTime=P["completion"]
+#printing the results
+print ("FCFS Scheduling Result")
+print("------------------------") 
+
+for process in processes:
+    print("Process ID:", P["ProcessId"])
+    print("Arrival Time:", P["Arrival_Time"])
+    print("Burst Time:", P["Burst_Time"])
+    print("Start Time:", P["start"])
+    print("Completion Time:", P["completion"])
+    print("----------------------")
+            
+ 
+ 
