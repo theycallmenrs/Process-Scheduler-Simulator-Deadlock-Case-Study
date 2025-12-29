@@ -24,7 +24,15 @@ with open("csv_test_files/FCFS_INPUTS/fcfs_input_1.csv", "r") as file:
         })
         
 #printing the processes to check data is read correctly
-print(processes)       
+print("Input Processes:")
+print("************************************")
+
+for P in processes:
+    print("Process ID:", P["ProcessId"])
+    print("Arrival Time:", P["Arrival_Time"])
+    print("Burst Time:", P["Burst_Time"])
+    print("********************************")
+
 
 #STEP 2 CALCULATING THE STARTING TIME AND COMPLETION TIME 
 
@@ -44,17 +52,31 @@ for P in processes:
 
     #updating the complition time after each process finish
     prev_compTime=P["completion"]
-#printing the results
-print ("FCFS Scheduling Result")
-print("------------------------") 
 
-for process in processes:
+#STEP 3 CALCULATING TURN AROUND TIME(TAT) AND WAITING TIME(WT)
+
+#TAT = COMPLETION TIME - ARRIVAL TIME AND WT = TAT -  BURST_TIME
+for P in processes:
+    P["TAT"] = P["completion"] - P["Arrival_Time"]
+    P["WT"] = P["TAT"] - P["Burst_Time"]
+
+
+#printing the results
+
+print("--------------------------------------")
+print ("FCFS Scheduling Result")
+print("--------------------------------------") 
+
+for P in processes:
     print("Process ID:", P["ProcessId"])
     print("Arrival Time:", P["Arrival_Time"])
     print("Burst Time:", P["Burst_Time"])
     print("Start Time:", P["start"])
     print("Completion Time:", P["completion"])
-    print("----------------------")
+    print("Turnaround Time(TAT):", P["TAT"])
+    print("Waiting Time(WT):", P["WT"])
+    print("------------------------------------")
             
  
- 
+
+
