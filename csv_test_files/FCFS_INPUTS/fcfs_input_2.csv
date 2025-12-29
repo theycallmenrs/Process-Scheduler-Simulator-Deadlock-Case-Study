@@ -1,4 +1,4 @@
-Process_Id,Arrival_Time,Burst_Time
+ProcessId,Arrival_Time,Burst_Time
 P1,0,4
 P2,2,2
 P3,4,1
