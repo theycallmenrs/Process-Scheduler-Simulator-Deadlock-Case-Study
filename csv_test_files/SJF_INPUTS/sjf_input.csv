@@ -1,5 +1,31 @@
+"""
+Test Case 1: Basic SJF Scheduling
+
+Purpose:
+This test case verifies the basic working of the Shortest Job First
+(Non-Preemptive) scheduling algorithm.
+
+Description:
+All processes arrive at the same time.
+The CPU selects the process with the smallest burst time first.
+
+Expected Behavior:
+The scheduler compares burst times only.
+The process with the shortest burst executes first.
+
+Expected Gantt Chart Order:
+P4 → P1 → P3 → P2
+
+Importance:
+Confirms correct shortest-job selection in SJF scheduling.
+"""
+
+
 pid,arrival_time,burst_time
 1,0,6
 2,0,8
 3,0,7
 4,0,3
+
+
+

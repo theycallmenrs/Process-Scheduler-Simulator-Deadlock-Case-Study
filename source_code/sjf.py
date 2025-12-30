@@ -14,12 +14,16 @@ import csv
 # Stores process details
 class Process:
     def __init__(self, pid, arrival_time, burst_time):
-        self.pid = pid                      # Process ID
-        self.arrival_time = arrival_time    # Arrival Time
-        self.burst_time = burst_time        # CPU Burst Time
-        self.waiting_time = 0               # Waiting Time
-        self.turnaround_time = 0            # Turnaround Time
-
+        self.pid = pid                    
+        # Process ID
+        self.arrival_time = arrival_time   
+        # Arrival Time
+        self.burst_time = burst_time      
+        # CPU Burst Time
+        self.waiting_time = 0              
+        # Waiting Time
+        self.turnaround_time = 0          
+        # Turnaround Time
 
 # Read process data from CSV file
 def read_processes_from_csv(filename):
@@ -121,9 +125,9 @@ def display_results(processes, gantt_chart):
 # Main Program
 if __name__ == "__main__":
 
-    filename = "sjf_input.csv"    # Input CSV file
+# Input CSV file
+    filename = "sjf_input.csv"    
     process_list = read_processes_from_csv(filename)
 
     completed_processes, gantt = sjf_scheduling(process_list)
-
     display_results(completed_processes, gantt)
