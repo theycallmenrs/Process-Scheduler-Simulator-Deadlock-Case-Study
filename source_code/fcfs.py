@@ -108,7 +108,7 @@ while True:
 
     #printing the results
     print("--------------------------------------")
-    print ("FCFS Scheduling Results")
+    print ("FCFS Scheduling Results for case:",choice)
     print("--------------------------------------") 
 
     for P in processes:
