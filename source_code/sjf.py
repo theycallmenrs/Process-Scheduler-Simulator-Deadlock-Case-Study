@@ -1,8 +1,6 @@
 import csv
 
-# -----------------------------
 # Process class
-# -----------------------------
 class Process:
     def __init__(self, pid, arrival, burst):
         self.pid = pid
@@ -11,9 +9,9 @@ class Process:
         self.waiting = 0
         self.turnaround = 0
 
-# -----------------------------
 # Read CSV file
-# -----------------------------
+
+
 def read_csv(file_path):
     processes = []
     with open(file_path, 'r') as file:
@@ -28,9 +26,9 @@ def read_csv(file_path):
             )
     return processes
 
-# -----------------------------
+
 # SJF Scheduling (Non-preemptive)
-# -----------------------------
+
 def sjf_scheduling(processes):
     time = 0
     completed = []
@@ -61,9 +59,9 @@ def sjf_scheduling(processes):
 
     return completed, gantt_chart
 
-# -----------------------------
+
 # Display results
-# -----------------------------
+
 def display_results(processes, gantt_chart):
     total_waiting = 0
     total_turnaround = 0
@@ -84,9 +82,9 @@ def display_results(processes, gantt_chart):
         print(f"| {pid} ({start}-{end}) ", end="")
     print("|")
 
-# -----------------------------
+
 # Main
-# -----------------------------
+
 if __name__ == "__main__":
     csv_options = {
         1: "csv_test_files/SJF_INPUTS/sjf_input.csv",

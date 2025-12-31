@@ -12,16 +12,8 @@ Expected Behavior:
 The first arriving process executes first.
 Among available processes, the one with the shortest burst time is selected.
 
-Expected Gantt Chart Order:
-P1 → P2 → P4 → P3
-
-Importance:
-Verifies correct handling of arrival times and dynamic decision making.
-"""
-
-pid,arrival_time,burst_time
-1,0,5
-2,1,3
-3,2,8
-4,3,6
+P1,0,4
+P2,1,3
+P3,2,1
+P4,3,2
 
