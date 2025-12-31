@@ -14,19 +14,34 @@ class Process:
 
 # Read CSV file
 def read_csv(file_path):
+    """
+    Reads process data from a CSV file and returns
+    a list of Process objects.
+    """
     processes = []
-    with open(file_path, 'r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            processes.append(
-                Process(
-                    row['pid'],
-                    int(row['arrival_time']),
-                    int(row['burst_time'])
-                )
-            )
-    return processes
 
+    try:
+        with open(file_path, 'r') as file:
+            reader = csv.DictReader(file)
+
+            for row in reader:
+                # Create Process object from CSV row
+                process = Process(
+                    int(row['pid']),                 # Convert PID to integer
+                    int(row['arrival_time']),        # Arrival time
+                    int(row['burst_time'])           # Burst time
+                )
+                processes.append(process)
+
+    except FileNotFoundError:
+        print("ERROR: CSV file not found!")
+        exit()
+
+    except KeyError:
+        print("ERROR: CSV file format is incorrect!")
+        exit()
+
+    return processes
 
 # SJF Scheduling (Non-preemptive)
 
@@ -62,7 +77,6 @@ def sjf_scheduling(processes):
 
 
 # Display results
-
 def display_results(processes, gantt_chart):
     total_waiting = 0
     total_turnaround = 0
