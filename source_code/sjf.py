@@ -12,11 +12,6 @@ class Process:
         # These will be calculated during scheduling
         self.waiting_time = 0            # Time process waits in ready queue
         self.turnaround_time = 0         # Total time from arrival to completion
-# ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
 
 # Read CSV file
 #part 2
@@ -49,11 +44,6 @@ def read_csv(file_path):
         exit()
 
     return processes
-# ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()=
 
 
 #part 3
@@ -108,11 +98,6 @@ def sjf_scheduling(processes):
         )
 
     return completed, gantt_chart
-# ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
 
 
 #part 4 # Display results
@@ -155,13 +140,7 @@ def display_results(processes, gantt_chart):
         pid, start, end = item
         print(f"| {pid} ({start}-{end}) ", end="")
     print("|")
-   # ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
 
-    
 #part5 # Main
 def main():
     csv_options = {
@@ -194,7 +173,6 @@ def main():
 
         except ValueError:
             print("Invalid input! Please enter a number between 0 and 4.")
-    
 # ==========================
 # Program Entry Point
 # ==========================
