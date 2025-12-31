@@ -1,7 +1,5 @@
-processes3 = [
-    ("P1", 0, 6),
-    ("P2", 0, 8),
-    ("P3", 0, 7),
-    ("P4", 0, 3)
-]
-time_quantum3 = 2
+ProcessID,ArrivalTime,BurstTime
+1,0,7
+2,2,4
+3,4,1
+4,5,4
