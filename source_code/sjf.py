@@ -45,40 +45,61 @@ def read_csv(file_path):
 
     return processes
 
+#part 3
 # SJF Scheduling (Non-preemptive)
-
 def sjf_scheduling(processes):
-    time = 0
-    completed = []
-    gantt_chart = []
+    """
+    Performs Non-Preemptive Shortest Job First scheduling.
+    Returns completed processes and Gantt chart.
+    """
 
-    processes.sort(key=lambda x: x.arrival)
+    time = 0                    # Current CPU time
+    completed = []               # List of completed processes
+    gantt_chart = []             # Stores execution order for visualization
+
+    # Sort processes by arrival time first
+    processes.sort(key=lambda p: p.arrival_time)
 
     while processes:
-        available = [p for p in processes if p.arrival <= time]
+        # Select processes that have already arrived
+        available_processes = [
+            p for p in processes if p.arrival_time <= time
+        ]
 
-        if not available:
+        # If no process is available, CPU is idle
+        if not available_processes:
+            gantt_chart.append(("IDLE", time, time + 1))
             time += 1
             continue
 
-        # Select shortest job
-        current = min(available, key=lambda x: x.burst)
-        processes.remove(current)
+        # Choose process with the shortest burst time
+        current_process = min(
+            available_processes,
+            key=lambda p: p.burst_time
+        )
+
+        processes.remove(current_process)
 
         start_time = time
-        time += current.burst
+        time += current_process.burst_time
         end_time = time
 
-        current.waiting = start_time - current.arrival
-        current.turnaround = current.waiting + current.burst
+        # Calculate waiting and turnaround times
+        current_process.waiting_time = start_time - current_process.arrival_time
+        current_process.turnaround_time = (
+            current_process.waiting_time + current_process.burst_time
+        )
 
-        completed.append(current)
-        gantt_chart.append((current.pid, start_time, end_time))
+        # Save results
+        completed.append(current_process)
+        gantt_chart.append(
+            (current_process.pid, start_time, end_time)
+        )
 
     return completed, gantt_chart
 
 
-# Display results
+#part 4 # Display results
 def display_results(processes, gantt_chart):
     total_waiting = 0
     total_turnaround = 0
@@ -100,8 +121,7 @@ def display_results(processes, gantt_chart):
     print("|")
 
 
-# Main
-
+#part5 # Main
 if __name__ == "__main__":
     csv_options = {
         1: "csv_test_files/SJF_INPUTS/sjf_input.csv",
