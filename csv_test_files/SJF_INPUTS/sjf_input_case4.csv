@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pid,arrival_time,burst_time
 1,0,6
 2,0,8
@@ -6,3 +7,13 @@ pid,arrival_time,burst_time
 
 
 
+=======
+pid,arrival_time,burst_time
+1,0,6
+2,0,8
+3,0,7
+4,0,3
+
+
+
+>>>>>>> d48dc7d8d71f5f5dc6d5edb304d6b6f7eab525fc
