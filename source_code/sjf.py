@@ -1,17 +1,18 @@
 import csv
 
 # Process class
+# Process class represents a single process in CPU scheduling
 class Process:
-    def __init__(self, pid, arrival, burst):
-        self.pid = pid
-        self.arrival = arrival
-        self.burst = burst
-        self.waiting = 0
-        self.turnaround = 0
+    def __init__(self, pid, arrival_time, burst_time):
+        self.pid = pid                  # Process ID (unique identifier)
+        self.arrival_time = arrival_time  # Time when process enters ready queue
+        self.burst_time = burst_time      # CPU time required by the process
+
+        # These will be calculated during scheduling
+        self.waiting_time = 0            # Time process waits in ready queue
+        self.turnaround_time = 0         # Total time from arrival to completion
 
 # Read CSV file
-
-
 def read_csv(file_path):
     processes = []
     with open(file_path, 'r') as file:
