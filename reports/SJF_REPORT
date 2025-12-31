@@ -1,0 +1,100 @@
+Case Study Report: Shortest Job First (SJF) CPU Scheduling Simulator
+1. Introduction
+CPU scheduling is a fundamental concept in operating systems. It determines how the CPU is allocated to different processes to improve system performance and efficiency. One of the important scheduling algorithms is Shortest Job First (SJF), which selects the process with the smallest CPU burst time for execution.
+This case study presents the design and implementation of a console-based SJF CPU Scheduling Simulator in Python, using CSV files as input. The simulator calculates performance metrics and displays a text-based Gantt chart.
+
+2. Objective of the Case Study
+The main objectives of this case study are:
+•	To understand the working of the SJF (Non-Preemptive) scheduling algorithm
+•	To implement SJF using Python
+•	To calculate:
+o	Waiting Time
+o	Turnaround Time
+o	Average Waiting Time
+o	Average Turnaround Time
+•	To generate a text-based Gantt Chart
+•	To use CSV files for flexible test case input
+
+3. Shortest Job First (SJF) Scheduling Algorithm
+Shortest Job First is a non-preemptive CPU scheduling algorithm in which the process with the smallest burst time is selected for execution among the processes that have already arrived.
+Key Characteristics:
+•	Non-preemptive scheduling
+•	Minimizes average waiting time
+•	Requires knowledge of burst time in advance
+•	May cause starvation for long processes
+
+4. System Design and Methodology
+4.1 Input Design (CSV Files)
+The simulator uses CSV files to store process information. Each CSV file contains:
+•	Process ID (pid)
+•	Arrival Time
+•	Burst Time
+Sample CSV Format:
+pid,arrival_time,burst_time
+P1,0,6
+P2,1,8
+P3,2,7
+P4,3,3
+Multiple CSV files are used to test different scheduling scenarios.
+
+4.2 Algorithm Steps
+1.	Read process details from the CSV file
+2.	Sort processes based on arrival time
+3.	At each time unit, select the available process with the shortest burst time
+4.	Execute the selected process until completion
+5.	Calculate waiting time and turnaround time
+6.	Repeat until all processes are executed
+7.	Display results and Gantt chart
+
+5. Test Cases and Expected Gantt Charts
+Test Case 1: sjf_input.csv
+Processes:
+•	P1 (0,6)
+•	P2 (1,8)
+•	P3 (2,7)
+•	P4 (3,3)
+Expected Gantt Chart:
+| P1 (0–6) | P4 (6–9) | P3 (9–16) | P2 (16–24) |
+
+Test Case 2: sjf_input2.csv
+Expected Gantt Chart:
+| P1 (0–4) | P3 (4–5) | P4 (5–7) | P2 (7–10) |
+
+Test Case 3: sjf.input3.csv
+Expected Gantt Chart:
+| P1 (0–5) | P3 (5–6) | P2 (6–8) | P4 (8–11) |
+
+Test Case 4: sjf.input4.csv
+Expected Gantt Chart:
+| P1 (0–10) | P5 (10–12) | P2 (12–17) | P4 (17–23) | P3 (23–31) |
+
+6. Performance Metrics
+Waiting Time
+Waiting Time is the total time a process waits in the ready queue before execution.
+Turnaround Time
+Turnaround Time is the total time taken from arrival to completion of a process.
+Average Times
+•	Average Waiting Time = Total Waiting Time / Number of Processes
+•	Average Turnaround Time = Total Turnaround Time / Number of Processes
+SJF is proven to minimize the average waiting time compared to other algorithms.
+
+7. Advantages and Limitations
+Advantages:
+•	Optimal average waiting time
+•	Simple logic
+•	Efficient for batch systems
+Limitations:
+•	Burst time must be known in advance
+•	Long processes may starve
+•	Not suitable for time-sharing systems
+
+8. Conclusion
+This case study successfully demonstrates the implementation of the Shortest Job First (SJF) CPU Scheduling Algorithm using Python. The simulator effectively reads process data from CSV files, calculates scheduling metrics, and displays execution order using a text-based Gantt chart.
+SJF is an efficient scheduling algorithm for minimizing waiting time, but its limitations make it unsuitable for all environments. The project provides a strong foundation for understanding CPU scheduling concepts.
+
+9. Future Enhancements
+•	Implement Preemptive SJF (Shortest Remaining Time First)
+•	Add Priority Scheduling
+•	Include Deadlock Detection Case Study
+•	Graphical Gantt Chart visualization
+
