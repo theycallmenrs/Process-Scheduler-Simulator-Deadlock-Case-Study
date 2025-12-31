@@ -100,7 +100,7 @@ def sjf_scheduling(processes):
 
 
 #part 4 # Display results
-ddef display_results(processes, gantt_chart):
+def display_results(processes, gantt_chart):
     """
     Displays waiting time, turnaround time,
     averages and Gantt chart.
@@ -139,7 +139,6 @@ ddef display_results(processes, gantt_chart):
         pid, start, end = item
         print(f"| {pid} ({start}-{end}) ", end="")
     print("|")
-    
     
 #part5 # Main
 if __name__ == "__main__":
