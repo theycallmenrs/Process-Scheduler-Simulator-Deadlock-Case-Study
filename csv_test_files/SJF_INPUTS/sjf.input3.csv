@@ -1,17 +1,5 @@
-"""
-Test Case 3: CPU Idle Time Scenario
-
-Purpose:
-This test case verifies CPU behavior when no process is available.
-
-Description:
-The CPU remains idle until the first process arrives.
-Once a process arrives, SJF scheduling begins.
-
-Expected Behavior:
-CPU is idle initially.
-Processes are scheduled only after arrival.
-
+.
+pid,arrival_time,burst_time
 P1,0,5
 P2,4,2
 P3,5,1

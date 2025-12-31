@@ -1,17 +1,4 @@
-"""
-Test Case 4: Same Arrival Time and Same Burst Time
-
-Purpose:
-This test case checks how SJF behaves when all processes have equal
-arrival and burst times.
-
-Description:
-All processes arrive at the same time with identical burst times.
-No process has priority based on burst length.
-
-Expected Behavior:
-Processes execute in First-Come-First-Serve (FCFS) order.
-
+pid,arrival_time,burst_time
 P1,0,10
 P2,1,5
 P3,2,8
