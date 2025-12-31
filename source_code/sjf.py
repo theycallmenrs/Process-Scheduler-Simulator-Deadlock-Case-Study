@@ -100,27 +100,47 @@ def sjf_scheduling(processes):
 
 
 #part 4 # Display results
-def display_results(processes, gantt_chart):
-    total_waiting = 0
-    total_turnaround = 0
+ddef display_results(processes, gantt_chart):
+    """
+    Displays waiting time, turnaround time,
+    averages and Gantt chart.
+    """
 
-    print("\nProcess | Waiting Time | Turnaround Time")
-    print("----------------------------------------")
+    total_waiting_time = 0
+    total_turnaround_time = 0
+
+    print("\nPROCESS SCHEDULING RESULTS")
+    print("--------------------------------------")
+    print("PID | Arrival | Burst | Waiting | Turnaround")
+    print("--------------------------------------")
+
+    # Sort processes by PID for neat output
+    processes.sort(key=lambda p: p.pid)
 
     for p in processes:
-        print(f"{p.pid:7} | {p.waiting:12} | {p.turnaround:15}")
-        total_waiting += p.waiting
-        total_turnaround += p.turnaround
+        print(
+            f"{p.pid:3} |"
+            f"{p.arrival_time:8} |"
+            f"{p.burst_time:6} |"
+            f"{p.waiting_time:7} |"
+            f"{p.turnaround_time:10}"
+        )
+        total_waiting_time += p.waiting_time
+        total_turnaround_time += p.turnaround_time
 
-    print("\nAverage Waiting Time:", total_waiting / len(processes))
-    print("Average Turnaround Time:", total_turnaround / len(processes))
+    n = len(processes)
 
-    print("\nGantt Chart:")
-    for pid, start, end in gantt_chart:
+    print("--------------------------------------")
+    print("Average Waiting Time   =", total_waiting_time / n)
+    print("Average Turnaround Time =", total_turnaround_time / n)
+
+    print("\nGANTT CHART:")
+    for item in gantt_chart:
+        pid, start, end = item
         print(f"| {pid} ({start}-{end}) ", end="")
     print("|")
-
-
+    
+    
 #part5 # Main
 if __name__ == "__main__":
     csv_options = {
