@@ -15,9 +15,7 @@ class Process:
 # ==========================
 # Program Entry Point
 # ==========================
-if __name__ == "__main__":
-    main()
-    
+
 # Read CSV file
 #part 2
 def read_csv(file_path):
@@ -52,10 +50,8 @@ def read_csv(file_path):
 # ==========================
 # Program Entry Point
 # ==========================
-if __name__ == "__main__":
-    main()
-    
-    
+
+
 #part 3
 # SJF Scheduling (Non-preemptive)
 def sjf_scheduling(processes):
@@ -109,11 +105,7 @@ def sjf_scheduling(processes):
 
     return completed, gantt_chart
 # ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
-    
+
 
 #part 4 # Display results
 def display_results(processes, gantt_chart):
@@ -156,19 +148,15 @@ def display_results(processes, gantt_chart):
         print(f"| {pid} ({start}-{end}) ", end="")
     print("|")
     # ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
-    
+
     
 #part5 # Main
 def main():
     csv_options = {
-        1: "csv_test_files/SJF_INPUTS/sjf_input.csv",
-        2: "csv_test_files/SJF_INPUTS/sjf_input2.csv",
-        3: "csv_test_files/SJF_INPUTS/sjf_input3.csv",
-        4: "csv_test_files/SJF_INPUTS/sjf_input4.csv"
+        1: "csv_test_files/SJF_INPUTS/sjf_input_case1.csv",
+        2: "csv_test_files/SJF_INPUTS/sjf_input_case2.csv",
+        3: "csv_test_files/SJF_INPUTS/sjf_input_case3.csv",
+        4: "csv_test_files/SJF_INPUTS/sjf_input_case4.csv"
     }
 
     while True:
@@ -195,7 +183,3 @@ def main():
         except ValueError:
             print("Invalid input! Please enter a number between 0 and 4.")
             # ==========================
-# Program Entry Point
-# ==========================
-if __name__ == "__main__":
-    main()
