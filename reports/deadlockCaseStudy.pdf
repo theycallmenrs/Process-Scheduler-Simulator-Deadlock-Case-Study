@@ -1,0 +1,52 @@
+Case Study Report
+Deadlock Detection Using Banker’s Algorithm
+Introduction
+Deadlock is a critical problem in operating systems where two or more processes are unable to proceed because each is waiting for a resource held by another process. This situation can cause system slowdown, application failure, or complete system halt. In this case study, we analyze a real-world database deadlock scenario and explain how Banker’s Algorithm can be used to detect and prevent deadlock.
+
+Description of the Deadlock Scenario (Database Deadlock)
+In a multi-user database system, multiple transactions often run at the same time. Consider the following situation:
+•	Transaction T1 locks Table A and then requests Table B
+•	Transaction T2 locks Table B and then requests Table A
+At this point:
+•	T1 is waiting for T2 to release Table B
+•	T2 is waiting for T1 to release Table A
+Neither transaction can continue, resulting in a deadlock.
+
+Causes of Deadlock
+The deadlock occurs due to the presence of the four necessary deadlock conditions:
+1.	Mutual Exclusion – Database tables can only be locked by one transaction at a time
+2.	Hold and Wait – Each transaction holds one resource and waits for another
+3.	No Preemption – Resources cannot be forcibly taken from a transaction
+4.	Circular Wait – T1 waits for T2 and T2 waits for T1
+Since all four conditions exist simultaneously, a deadlock is formed.
+
+Deadlock Detection Using Banker’s Algorithm
+Banker’s Algorithm is a deadlock avoidance and detection technique that ensures the system remains in a safe state. The algorithm works by checking:
+•	Total available resources
+•	Maximum resource demand of each process
+•	Currently allocated resources
+It calculates the Need Matrix using:
+Need = Maximum − Allocation
+If the algorithm finds a sequence in which all processes can complete using available resources, the system is considered safe. If no such sequence exists, the system is in an unsafe state, indicating a possible deadlock.
+In this project, Banker’s Algorithm is implemented in Python to automatically detect whether a deadlock exists and to display a safe sequence when possible.
+
+Impact of Deadlock
+Deadlocks can cause several problems in real-world systems:
+•	Applications stop responding
+•	System performance degrades
+•	User operations fail
+•	Data inconsistency due to forced rollbacks
+In databases, deadlocks may lead to transaction termination and loss of user work.
+
+Deadlock Prevention and Avoidance
+Deadlocks can be reduced or prevented using the following methods:
+•	Resource ordering: Request resources in a fixed order
+•	Avoid hold and wait: Request all required resources at once
+•	Timeouts: Abort transactions waiting too long
+•	Deadlock detection and recovery: Detect deadlocks and terminate one process
+•	Banker’s Algorithm: Grant resources only if the system remains safe
+
+Conclusion
+Deadlock is a serious issue in operating systems and database environments. Through this case study, we observed how improper resource allocation leads to deadlock and how Banker’s Algorithm effectively detects unsafe states. Implementing proper deadlock detection and prevention mechanisms improves system reliability, efficiency, and stability.
+
+
