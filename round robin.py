@@ -1,13 +1,13 @@
-"""
-ROUND ROBIN CPU SCHEDULING ALGORITHM
-Complete implementation with Gantt chart and statistics
+"""Deprecated compatibility stub.
+
+This file used to contain the Round Robin scheduler implementation.
+The canonical implementation now lives in `source_code/rr.py` and
+the command-line wrapper is `round_robin.py`.
+
+Keep this stub to avoid breaking imports that reference the old file name.
 """
 
-from collections import deque
-
-class RoundRobinScheduler:
-    def __init__(self, time_quantum=4):
-        self.time_quantum = time_quantum
+from source_code.rr import RoundRobinScheduler  # re-export for compatibility
         self.processes = []
         self.gantt_chart = []
         self.avg_waiting_time = 0
