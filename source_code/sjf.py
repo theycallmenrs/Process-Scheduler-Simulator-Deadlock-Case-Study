@@ -2,6 +2,7 @@ import csv
 
 # Process class
 # Process class represents a single process in CPU scheduling
+#part 1
 class Process:
     def __init__(self, pid, arrival_time, burst_time):
         self.pid = pid                  # Process ID (unique identifier)
@@ -13,6 +14,7 @@ class Process:
         self.turnaround_time = 0         # Total time from arrival to completion
 
 # Read CSV file
+#part 2
 def read_csv(file_path):
     """
     Reads process data from a CSV file and returns
