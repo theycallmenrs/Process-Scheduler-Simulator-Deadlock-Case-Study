@@ -69,35 +69,47 @@ class RoundRobinScheduler:
 
     # ===== Part 2c: Display Results and Gantt Chart =====
     def display_results(self):
-        """Display complete scheduling results"""
-        print("\n" + "="*70)
-        print(f"ROUND ROBIN SCHEDULING RESULTS (Time Quantum = {self.time_quantum})")
-        print("="*70)
-        
-        # Process table
-        print("\nPROCESS TABLE:")
-        print("-"*70)
-        print(f"{'PID':<6} {'Arrival':<8} {'Burst':<6} {'Finish':<7} {'Waiting':<8} {'Turnaround':<10} {'Response':<8}")
-        print("-"*70)
-        
-        for p in sorted(self.processes, key=lambda x: x['pid']):
-            print(f"{p['pid']:<6} {p['arrival_time']:<8} {p['burst_time']:<6} "
-                  f"{p['completion_time']:<7} {p['waiting_time']:<8} "
-                  f"{p['turnaround_time']:<10} {p['response_time']:<8}")
-        
-        # Gantt chart
-        self.display_gantt_chart()
-        
-        # Statistics
-        print("\n" + "-"*40)
-        print("PERFORMANCE METRICS")
-        print("-"*40)
-        print(f"Average Waiting Time:    {self.avg_waiting_time:.2f}")
-        print(f"Average Turnaround Time: {self.avg_turnaround_time:.2f}")
-        print(f"Throughput: {len(self.processes)/self.total_time:.3f} processes/unit time")
-        print(f"Total Execution Time: {self.total_time}")
-    
-    def display_summary(self):
-        """Display summary only"""
-        print(f"  Average Waiting Time: {self.avg_waiting_time:.2f}")
-        print(f"  Average Turnaround Time: {self.avg_turnaround_time:.2f}")  these are the codes  and do you mean like this
+        print("\nGantt Chart:")
+        for pid, start, end in self.gantt_chart:
+            print(f"|{pid}({start}-{end})", end=" ")
+        print("|")
+
+        total_waiting = sum(p.waiting for p in self.processes)
+        total_turnaround = sum(p.turnaround for p in self.processes)
+        n = len(self.processes)
+
+        print("\nProcess\tArrival\tBurst\tWaiting\tTurnaround")
+        for p in self.processes:
+            print(f"{p.pid}\t{p.arrival}\t{p.burst}\t{p.waiting}\t{p.turnaround}")
+
+        print(f"\nAverage Waiting Time: {total_waiting/n:.2f}")
+        print(f"Average Turnaround Time: {total_turnaround/n:.2f}")
+
+# ================= Part 3: Main Program =================
+if __name__ == "__main__":
+    # ===== Part 3a: CSV Options =====
+    csv_options = {
+        1: "csv_test_files/RR_INPUTS/rr_input_case1.csv",
+        2: "csv_test_files/RR_INPUTS/rr_inputcase2.csv",
+        3: "csv_test_files/RR_INPUTS/rr_input_case3.csv",
+        4: "csv_test_files/RR_INPUTS/rr_input_case4.csv"
+    }
+
+    print("Select CSV test file:")
+    for key, val in csv_options.items():
+        print(f"{key}: {val}")
+
+    # ===== Part 3b: User Input =====
+    choice = int(input("Enter choice (1-4): "))
+    filename = csv_options.get(choice)
+    if not filename:
+        print("Invalid choice!")
+        exit()
+
+    time_quantum = int(input("Enter Time Quantum: "))
+
+    # ===== Part 4: Run Scheduler =====
+    rr = RoundRobinScheduler(time_quantum)
+    rr.load_processes(filename)
+    rr.run()
+    rr.display_results()
