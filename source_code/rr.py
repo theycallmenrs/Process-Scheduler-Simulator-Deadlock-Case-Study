@@ -1,7 +1,8 @@
 import csv
 from collections import deque
 
-# ================= Part 1: Process Class =================
+#  Part 1: Process Class 
+
 class Process:
     def __init__(self, pid, arrival, burst):
         self.pid = pid                   # Process ID (unique)
