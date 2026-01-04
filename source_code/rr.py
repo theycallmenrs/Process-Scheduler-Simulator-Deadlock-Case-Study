@@ -184,4 +184,4 @@ class RoundRobinScheduler:
     def display_summary(self):
         """Display summary only"""
         print(f"  Average Waiting Time: {self.avg_waiting_time:.2f}")
-        print(f"  Average Turnaround Time: {self.avg_turnaround_time:.2f}")  these are the codes  and do you mean like this
+        print(f"  Average Turnaround Time: {self.avg_turnaround_time:.2f}")
