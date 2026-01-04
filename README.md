@@ -92,38 +92,38 @@ P1,1 0 1,3 2 2,3 3 2
 6. CPU SCHEDULING ALGORITHMS IMPLEMENTED
 
 6.1 First Come First Serve (FCFS)
-	•	Non-preemptive scheduling algorithm
-	•	Processes are executed in the order they arrive
-	•	Simple but may cause the convoy effect
+•	Non-preemptive scheduling algorithm
+•	Processes are executed in the order they arrive
+•	Simple but may cause the convoy effect
 
 Metrics Calculated:
-	•	Start Time
-	•	Completion Time
-	•	Turnaround Time (TAT)
-	•	Waiting Time (WT)
-	•	Average TAT and WT
-	•	Gantt Chart
+•	Start Time
+•	Completion Time
+•	Turnaround Time (TAT)
+•	Waiting Time (WT)
+•	Average TAT and WT
+•	Gantt Chart
 
 ⸻
 
 6.2 Shortest Job First (SJF)
-	•	Non-preemptive scheduling
-	•	Selects the process with the shortest burst time among arrived processes
-	•	Minimizes average waiting time
-	•	May cause starvation of long processes
+•	Non-preemptive scheduling
+•	Selects the process with the shortest burst time among arrived processes
+•	Minimizes average waiting time
+•	May cause starvation of long processes
 
 ⸻
 
 6.3 Round Robin (RR)
-	•	Preemptive scheduling algorithm
-	•	Each process is given a fixed time quantum
-	•	Processes are executed in a cyclic order
-	•	Fair scheduling suitable for time-sharing systems
+•	Preemptive scheduling algorithm
+•	Each process is given a fixed time quantum
+•	Processes are executed in a cyclic order
+•	Fair scheduling suitable for time-sharing systems
 
 Key Characteristics:
-	•	Context switching occurs frequently
-	•	Waiting time depends on time quantum
-	•	Prevents starvation
+•	Context switching occurs frequently
+•	Waiting time depends on time quantum
+•	Prevents starvation
 
 ⸻
 
