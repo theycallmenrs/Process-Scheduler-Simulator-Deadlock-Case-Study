@@ -90,7 +90,7 @@ if __name__ == "__main__":
     # ===== Part 3a: CSV Options =====
     csv_options = {
         1: "csv_test_files/RR_INPUTS/rr_input_case1.csv",
-        2: "csv_test_files/RR_INPUTS/rr_inputcase2.csv",
+        2: "csv_test_files/RR_INPUTS/rr_input_case2.csv",
         3: "csv_test_files/RR_INPUTS/rr_input_case3.csv",
         4: "csv_test_files/RR_INPUTS/rr_input_case4.csv"
     }
